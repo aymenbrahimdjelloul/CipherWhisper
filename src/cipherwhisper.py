@@ -70,9 +70,6 @@ class CipherWhisper:
         # Generate key derivation keys
         self.__derivation_keys: list = self.__generate_key_derivation()
 
-        # Generate the shuffle key
-        # self.__shuffle_key: int = self.__generate_shuffle_key()
-
     def encrypt(self, plaintext: str) -> str:
         """
         This method will encrypt the given Plaintext
@@ -89,7 +86,7 @@ class CipherWhisper:
         # // STEP 1
         inner_list_index = 0
         # print(self.__CHARS)
-        print(key_derivation_len)
+        # print(key_derivation_len)
         for char in plaintext:
 
             char_index: int = self.__CHARS.index(char)
@@ -114,14 +111,8 @@ class CipherWhisper:
         # Clear memory
         del plaintext, char, key, char_index,
 
-        # STEP 2 :
-        # Shuffle encrypted cipher
-        # split the cipher into list with chunk size
-        encryption_cipher: str = f"{self.__iv_value}{cipher}{integrity_checksum}"
-        cipher_list: list = self.__split_cipher_string(encryption_cipher)
-
         # Return the encrypted plaintext
-        return encryption_cipher
+        return f"{self.__iv_value}{cipher}{integrity_checksum}"
 
     def decrypt(self, cipher: str) -> str:
         """
@@ -134,9 +125,7 @@ class CipherWhisper:
         # First Define empty variable for encrypted text
         plaintext: str = ""
 
-        # reverse the shifting rows
-        # cipher: str = "".join(self.__shift_rows(self.__split_cipher_string(cipher), shift_key=5, _reversed=True))
-        print(cipher)
+        # print(cipher)
         # Get the iv value
         iv_value = self.__get_iv_value(cipher)
         # print(iv_value)
@@ -184,10 +173,6 @@ class CipherWhisper:
         return plaintext
 
     @staticmethod
-    def __shuffle_cipher(cipher_list: list, shuffle_key: int, _reversed: bool) -> list:
-        """ This method will shuffle the given cipher list using a shift key"""
-
-    @staticmethod
     def __is_valid_key(key: str) -> bool:
         """ This method will check if the given key encryption valid"""
         return True if key.isascii() and 32 < len(key) * 8 <= 128 else False
@@ -203,24 +188,6 @@ class CipherWhisper:
         padding_length = (self.__KEY_LENGTH // 8) - len(key)
         padded_key = key + 'XY' * padding_length
         return padded_key
-
-    @staticmethod
-    def __split_cipher_string(cipher: str, chunk_size: int = 2) -> list:
-        """ This method will split the cipher string in list with chunk size"""
-
-        # Initialize an empty list
-        cipher_list: list = []
-
-        # Loop through the string and split it into chunks
-        for i in range(0, len(cipher), chunk_size):
-            # Get a chunk of 4 characters
-            chunk = cipher[i:i + chunk_size]
-
-            # Assign a number as the key and the chunk as the value in the dictionary
-            cipher_list.append(chunk)
-
-        # Return the list
-        return cipher_list
 
     def __generate_key_derivation(self) -> list:
         """ This method will generate a key derivation tuple according to the encryption key used"""
