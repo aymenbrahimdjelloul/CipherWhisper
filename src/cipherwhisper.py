@@ -39,7 +39,7 @@ LICENSE : MIT
 # IMPORTS
 import sys
 import random
-from hashlib import sha256, sha1
+from hashlib import sha256
 from secrets import token_hex
 from exceptions import *
 
@@ -54,18 +54,18 @@ class CipherWhisper:
     __CHARS = ''.join([chr(i) for i in range(32, 127)])
     __CHARS_LENGTH = len(__CHARS)
 
-    def __init__(self, key: str):
+    def __init__(self, password: str):
 
         # Define variable
         self.__key = None
         # Check is a valid key
-        if not self.__is_valid_key(key): raise InvalidEncryptionKey()
+        if not self.__is_valid_key(password): raise InvalidEncryptionKey()
 
         # Generate iv value
         self.__iv_value: str = self.__generate_iv_value()
 
         # Pad the key
-        self.__key: str = f"{self.__iv_value}{self.__key_padding(key)}"
+        self.__key: str = f"{self.__iv_value}{self.__key_padding(password)}"
 
         # Generate key derivation keys
         self.__derivation_keys: list = self.__generate_key_derivation()
