@@ -13,7 +13,7 @@ from cipherwhisper import CipherWhisper
 
 # Define encryption key
 KEY = "0123456789"
-# Define
+# Define string of 1 KB
 TEXT = "X" * 1024
 
 # Create CipherWhisper object
