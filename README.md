@@ -10,10 +10,7 @@ CipherWhisper is a symmetric encryption algorithm it uses 128bit key lengthr</p>
 <h3 algin="center">Step 2 : Encryption</h3>
 
 <p>CipherWhisper will iterate through each character in the given plaintext and apply the shift keys in 16 round, after ciphering the plaintext is done the encrypt method will get a checksum of the original plaintext and return the final ciphered text with the IV and the checksum</p>
-<h3 align="center">Decryption : </h3>
-<p></p>
-
-<h3>How to use ?</h3>
+<h3>Decryption : </h3>
 <p align="center">The decryption process is a reversing of the encryption, First of all the decrypt function will extract the IV and use it to generate key derivation list using the ciphertext IV and the given used key, after that it will perform a shift key using the generated key derivation list in reverse, after that it will check the authentication by comapring the extracted checksum from the ciphertext and the calculated checksum from the decrypted plaintext</p>
 
 ~~~
@@ -27,6 +24,7 @@ obj = CipherWhisper(password="0123456789")
 print(obj.encrypt("hello world!"))
 
 ~~~
+
 ~~~
 MIT License
 
