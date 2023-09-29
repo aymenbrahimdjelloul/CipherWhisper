@@ -13,6 +13,8 @@ CipherWhisper is a symmetric encryption algorithm it uses 128bit key lengthr</p>
 <h3>Decryption : </h3>
 <p align="center">The decryption process is a reversing of the encryption, First of all the decrypt function will extract the IV and use it to generate key derivation list using the ciphertext IV and the given used key, after that it will perform a shift key using the generated key derivation list in reverse, after that it will check the authentication by comapring the extracted checksum from the ciphertext and the calculated checksum from the decrypted plaintext</p>
 
+<h1 align="center">How to use ?</h1>
+
 ~~~
 # Import CipherWhisper
 from cipherwhisper import CipherWhisper
@@ -24,6 +26,8 @@ obj = CipherWhisper(password="0123456789")
 print(obj.encrypt("hello world!"))
 
 ~~~
+
+<h1 align="center">LICENSE</h1>
 
 ~~~
 MIT License
