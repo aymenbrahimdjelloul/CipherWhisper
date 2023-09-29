@@ -10,6 +10,7 @@ CipherWhisper is a symmetric encryption algorithm it uses 128bit key lengthr</p>
 <p>CipherWhisper will iterate through each character in the given plaintext and apply the shift keys in 16 round</p>
 
 <h1 align="center">How to use ?</h1>
+
 python~~~
 # Import CipherWhisper
 from cipherwhisper import CipherWhisper
