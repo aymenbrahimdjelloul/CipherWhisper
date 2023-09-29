@@ -25,6 +25,8 @@ obj = CipherWhisper(password="0123456789")
 # Encrypt a text
 print(obj.encrypt("hello world!"))
 
+# OUTPUT : 901b9454e2984618S@Oys:Y1sV h7509e5bda0c762d2
+
 ~~~
 
 <h1 align="center">LICENSE</h1>
