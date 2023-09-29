@@ -27,7 +27,7 @@ obj = CipherWhisper(password="0123456789")
 print(obj.encrypt("hello world!"))
 
 ~~~
-
+~~~
 MIT License
 
 Copyright (c) 2023 Aymen Brahim Djelloul
