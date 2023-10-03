@@ -1,6 +1,12 @@
 # CipherWhisper
 CipherWhisper is a Simple implementation of Caeser Cipher encryption algorithm with extra security improvements, and It is for learning purposes only 
 
+<h1 align="center">Features</h1>
+
+ - [x] Easy to use, CiphereWhisper provide the most easiest method to encrypt a Text
+ - [x] Secure ! .. CipherWhisper provide a secure ciphers and impossible to crack cause of its 16 rounds that's provide unpredictable ciphers
+ - [x] Good start to Learn cryptography ! .. It's just a strong & secure variant of the original Caesar cipher, so it's a good start to learn cryptography fundamentales
+
 <h1 align="ceneter">How It's work ?</h1>
 <p align="ceneter">CipherWishper is a development and improvement for the basic Caesar Cipher, CipherWhipser designed to provide a secure and unpredictable ciphers.
 CipherWhisper is a symmetric encryption algorithm it uses 128bit key lengthr</p>
